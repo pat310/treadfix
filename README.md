@@ -8,7 +8,7 @@ This fixes tcx files downloaded from Strava that were uploaded with the Peloton 
 
 ## Running
 
-`./treadfix stravaFile.tcx newFileToWrite.tcx`
+`./treadfix stravaFile.tcx`
 
 ## Development
 

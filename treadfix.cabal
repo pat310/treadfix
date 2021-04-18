@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7503c4304700e6334198750c043e975f42a27d1b20991efdbbc1dfec89905541
+-- hash: 540a906f31955e7f5dac624313a88ef655f25358b7cf8bcf1d04226d7ad987e8
 
 name:           treadfix
 version:        0.1.0.0
@@ -28,5 +28,6 @@ executable treadfix
       src
   build-depends:
       base >=4.7 && <5
+    , directory
     , regex-tdfa
   default-language: Haskell2010

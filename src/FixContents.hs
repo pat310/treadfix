@@ -1,5 +1,6 @@
 module FixContents
   ( fixContents
+  , getFilenameFromPath
   )
 where
 
@@ -33,3 +34,8 @@ removeCreatorField str =
       (f , _ ) = splitAt f1 str
       (_ , l ) = splitAt (f2 + l2) str
   in  f ++ l
+
+getFilenameFromPath :: String -> String
+getFilenameFromPath str =
+  let fileSplitAtSlash = groupBy (\x y -> x /= '/' && y /= '/') str
+  in  last fileSplitAtSlash

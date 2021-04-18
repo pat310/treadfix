@@ -1,12 +1,18 @@
 module Main where
 
+import           System.Directory
 import           System.Environment
 import           System.IO
 import           FixContents
 
 main :: IO ()
 main = do
-  (contentFile : newFileName : _) <- getArgs
-  contents                        <- readFile contentFile
+  (filePath : _) <- getArgs
+  contents       <- readFile filePath
+  let fileName = getFilenameFromPath filePath
+  (tempName, tempHandle) <- openTempFile "." "temp"
   let fixedContents = fixContents contents
-  writeFile newFileName fixedContents
+  hPutStr tempHandle fixedContents
+  hClose tempHandle
+  removeFile filePath
+  renameFile tempName filePath
